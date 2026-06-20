@@ -74,9 +74,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar for Desktop / Header for Mobile */}
       <header className="md:hidden border-b border-[rgba(209,183,136,0.3)] bg-[#FFFBF5] px-6 py-4 flex justify-between items-center sticky top-0 z-20">
         <div className="flex flex-col">
-          <span className="font-display font-extrabold text-lg tracking-tight text-[#1C1B1A]">
-            NOM<span className="text-[#D55D27]">I</span>TCH<span className="text-[#D55D27]">I</span>
-          </span>
+          <img 
+            src="/logo.png" 
+            alt="Nomichi Logo" 
+            className="h-7 w-auto object-contain mb-0.5 align-middle self-start mix-blend-multiply" 
+          />
           <span className="text-[9px] uppercase tracking-widest text-[#45471D] font-semibold">Trip Desk</span>
         </div>
         <button 
@@ -133,9 +135,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="hidden md:flex md:w-64 bg-white border-r border-[rgba(209,183,136,0.3)] flex-col sticky top-0 h-screen shrink-0">
         {/* Brand */}
         <div className="p-6 border-b border-[rgba(209,183,136,0.15)] flex flex-col">
-          <span className="font-display font-extrabold text-2xl tracking-tight text-[#1C1B1A]">
-            NOM<span className="text-[#D55D27]">I</span>TCH<span className="text-[#D55D27]">I</span>
-          </span>
+          <img 
+            src="/logo.png" 
+            alt="Nomichi Logo" 
+            className="h-8 w-auto object-contain mb-1 self-start mix-blend-multiply" 
+          />
           <span className="text-[10px] uppercase tracking-widest text-[#45471D] font-semibold mt-0.5">
             Trip Desk CRM
           </span>

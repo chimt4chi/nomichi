@@ -86,10 +86,12 @@ export default function AdminLoginPage() {
     <main className="min-h-screen bg-[#FFFBF5] flex items-center justify-center p-6">
       <div className="max-w-md w-full bg-white p-8 rounded-xl border border-[rgba(209,183,136,0.4)] shadow-lg animate-fade-in">
         {/* Brand Header */}
-        <div className="text-center mb-8">
-          <span className="font-display font-extrabold text-3xl tracking-tight text-[#1C1B1A]">
-            NOM<span className="text-[#D55D27]">I</span>CH<span className="text-[#D55D27]">I</span>
-          </span>
+        <div className="text-center mb-8 flex flex-col items-center">
+          <img 
+            src="/logo.png" 
+            alt="Nomichi Logo" 
+            className="h-10 w-auto object-contain mb-1.5 mix-blend-multiply" 
+          />
           <p className="text-xs uppercase tracking-widest text-[#45471D] font-semibold mt-1">
             Trip Desk Admin
           </p>

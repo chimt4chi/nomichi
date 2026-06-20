@@ -188,9 +188,11 @@ export default function PublicEnquiryPage() {
       <header className="border-b border-[rgba(209,183,136,0.3)] py-6 bg-[#FFFBF5] sticky top-0 z-20 backdrop-blur-md bg-opacity-90 animate-fadeInUp opacity-0">
         <div className="container flex justify-between items-center">
           <div className="flex flex-col">
-            <span className="font-display font-extrabold text-2xl tracking-tight text-[#1C1B1A] flex items-center gap-1">
-              NOM<span className="text-[#D55D27]">I</span>CH<span className="text-[#D55D27]">I</span>
-            </span>
+            <img 
+              src="/logo.png" 
+              alt="Nomichi Logo" 
+              className="h-8 w-auto object-contain mb-1 mix-blend-multiply" 
+            />
             <span className="text-[10px] uppercase tracking-widest text-[#45471D] font-semibold">Travel that finds you</span>
           </div>
           <a 
