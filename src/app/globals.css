@@ -445,6 +445,9 @@ a svg:not(.animate-spin),
 .w-16 { width: 4rem; }
 .h-2 { height: 0.5rem; }
 .h-2\.5 { height: 0.625rem; }
+.h-7 { height: 1.75rem; }
+.h-8 { height: 2rem; }
+.h-10 { height: 2.5rem; }
 .h-12 { height: 3rem; }
 .h-16 { height: 4rem; }
 .h-40 { height: 10rem; }
@@ -479,6 +482,7 @@ a svg:not(.animate-spin),
 .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
 .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
 .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.py-36 { padding-top: 9rem; padding-bottom: 9rem; }
 .pt-3 { padding-top: 0.75rem; }
 .pt-4 { padding-top: 1rem; }
 .pb-3 { padding-bottom: 0.75rem; }

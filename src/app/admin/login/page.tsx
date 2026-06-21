@@ -88,7 +88,7 @@ export default function AdminLoginPage() {
         {/* Brand Header */}
         <div className="text-center mb-8 flex flex-col items-center">
           <img 
-            src="/logo.png" 
+            src="/logo.svg" 
             alt="Nomichi Logo" 
             className="h-10 w-auto object-contain mb-1.5 mix-blend-multiply" 
           />

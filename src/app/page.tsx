@@ -189,11 +189,10 @@ export default function PublicEnquiryPage() {
         <div className="container flex justify-between items-center">
           <div className="flex flex-col">
             <img 
-              src="/logo.png" 
+              src="/logo.svg" 
               alt="Nomichi Logo" 
               className="h-8 w-auto object-contain mb-1 mix-blend-multiply" 
             />
-            <span className="text-[10px] uppercase tracking-widest text-[#45471D] font-semibold">Travel that finds you</span>
           </div>
           <a 
             href="/admin" 
@@ -205,7 +204,7 @@ export default function PublicEnquiryPage() {
       </header>
 
       {/* Main Hero & Description */}
-      <section className="py-16 md:py-20 border-b border-[rgba(209,183,136,0.2)] relative overflow-hidden flex items-center justify-center">
+      <section className="py-36 border-b border-[rgba(209,183,136,0.2)] relative overflow-hidden flex items-center justify-center">
         {/* Background Image with Ken Burns zoom animation */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img 
@@ -522,7 +521,12 @@ export default function PublicEnquiryPage() {
 
       {/* Footer */}
       <footer className="border-t border-[rgba(209,183,136,0.2)] bg-[#F5EFE6] py-12 mt-16 text-center text-xs text-[#45471D]">
-        <div className="container max-w-md">
+        <div className="container max-w-md flex flex-col items-center">
+          <img 
+            src="/logo.svg" 
+            alt="Nomichi Logo" 
+            className="h-7 w-auto object-contain mb-4 mix-blend-multiply" 
+          />
           <p className="font-display font-semibold mb-2">NOMICHI EXPLORERS</p>
           <p className="mb-4">community-led travel. slow. personal.</p>
           <p className="text-[10px] text-gray-400">&copy; 2026 Nomichi. Confidential build assignment.</p>

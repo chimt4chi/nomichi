@@ -75,7 +75,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <header className="md:hidden border-b border-[rgba(209,183,136,0.3)] bg-[#FFFBF5] px-6 py-4 flex justify-between items-center sticky top-0 z-20">
         <div className="flex flex-col">
           <img 
-            src="/logo.png" 
+            src="/logo.svg" 
             alt="Nomichi Logo" 
             className="h-7 w-auto object-contain mb-0.5 align-middle self-start mix-blend-multiply" 
           />
@@ -136,7 +136,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Brand */}
         <div className="p-6 border-b border-[rgba(209,183,136,0.15)] flex flex-col">
           <img 
-            src="/logo.png" 
+            src="/logo.svg" 
             alt="Nomichi Logo" 
             className="h-8 w-auto object-contain mb-1 self-start mix-blend-multiply" 
           />
