@@ -25,10 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>{children}</body>
-      <script
+      {/* <script
         src="https://cdn.ux4g.gov.in/tools/accessibility-widget.js"
         async
-      ></script>
+      ></script> */}
     </html>
   );
 }
