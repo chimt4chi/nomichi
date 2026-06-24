@@ -3,10 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Nomichi | Travel that finds you",
-  description: "We design slow, offbeat, small-group journeys for people who want a trip to feel personal. Curated and led end-to-end by our own team.",
+  description:
+    "We design slow, offbeat, small-group journeys for people who want a trip to feel personal. Curated and led end-to-end by our own team.",
   icons: {
     icon: "/favicon.ico",
-  }
+  },
 };
 
 export const viewport: Viewport = {
@@ -23,9 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
+      <script
+        src="https://cdn.ux4g.gov.in/tools/accessibility-widget.js"
+        async
+      ></script>
     </html>
   );
 }
