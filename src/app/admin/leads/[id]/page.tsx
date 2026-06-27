@@ -507,9 +507,18 @@ export default function LeadDetailPage() {
                   Analyzing traveler profile...
                 </div>
               ) : vibe ? (
-                <div className="p-3.5 bg-[rgba(69,71,29,0.04)] border border-[rgba(69,71,29,0.15)] rounded-lg text-xs leading-relaxed font-light text-gray-700 space-y-1">
-                  <span className="font-semibold text-xs text-[#45471D] block">Vibe Check Summary:</span>
-                  <p>{vibe}</p>
+                <div className="space-y-2">
+                  <div className="p-3.5 bg-[rgba(69,71,29,0.04)] border border-[rgba(69,71,29,0.15)] rounded-lg text-xs leading-relaxed font-light text-gray-700 space-y-1">
+                    <span className="font-semibold text-xs text-[#45471D] block">Vibe Check Summary:</span>
+                    <p>{vibe}</p>
+                  </div>
+                  <button
+                    onClick={() => triggerVibeCheck(lead)}
+                    className="btn btn-secondary text-[10px] font-semibold py-1.5 px-3 flex items-center justify-center gap-1 hover:bg-white w-full animate-fadeInUp"
+                  >
+                    <Sparkles size={11} className="text-[#D55D27]" />
+                    <span>Regenerate Vibe Check</span>
+                  </button>
                 </div>
               ) : (
                 <button
@@ -535,26 +544,35 @@ export default function LeadDetailPage() {
                   <div className="p-3.5 bg-white border border-[rgba(209,183,136,0.3)] rounded-lg text-xs font-light text-gray-700 select-all leading-relaxed relative">
                     {whatsapp}
                   </div>
-                  <button
-                    onClick={copyToClipboard}
-                    className={`btn w-full text-xs font-semibold py-2 flex items-center justify-center gap-1.5 ${
-                      copiedWhatsapp 
-                        ? 'bg-green-600 border-green-600 text-white hover:bg-green-700' 
-                        : 'btn-secondary hover:bg-white'
-                    }`}
-                  >
-                    {copiedWhatsapp ? (
-                      <>
-                        <ClipboardCheck size={12} />
-                        <span>Copied to Clipboard</span>
-                      </>
-                    ) : (
-                      <>
-                        <Clipboard size={12} />
-                        <span>Copy Message</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="grid grid-cols-2 gap-2 animate-fadeInUp">
+                    <button
+                      onClick={copyToClipboard}
+                      className={`btn w-full text-xs font-semibold py-2 flex items-center justify-center gap-1.5 ${
+                        copiedWhatsapp 
+                          ? 'bg-green-600 border-green-600 text-white hover:bg-green-700' 
+                          : 'btn-secondary hover:bg-white'
+                      }`}
+                    >
+                      {copiedWhatsapp ? (
+                        <>
+                          <ClipboardCheck size={12} />
+                          <span>Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Clipboard size={12} />
+                          <span>Copy Message</span>
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={triggerWhatsAppDraft}
+                      className="btn btn-secondary text-xs font-semibold py-2 flex items-center justify-center gap-1.5 hover:bg-white"
+                    >
+                      <Sparkles size={12} className="text-[#D55D27]" />
+                      <span>Regenerate</span>
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <button
@@ -577,9 +595,19 @@ export default function LeadDetailPage() {
                   Summarizing call notes...
                 </div>
               ) : summary ? (
-                <div className="p-3.5 bg-orange-50/30 border border-orange-200/50 rounded-lg text-xs leading-relaxed font-light text-gray-700 space-y-1">
-                  <span className="font-semibold text-xs text-[#D55D27] block">Status & Next Action:</span>
-                  <p>{summary}</p>
+                <div className="space-y-2">
+                  <div className="p-3.5 bg-orange-50/30 border border-orange-200/50 rounded-lg text-xs leading-relaxed font-light text-gray-700 space-y-1">
+                    <span className="font-semibold text-xs text-[#D55D27] block">Status & Next Action:</span>
+                    <p>{summary}</p>
+                  </div>
+                  <button
+                    onClick={triggerCallLogSummary}
+                    className="btn btn-secondary text-[10px] font-semibold py-1.5 px-3 flex items-center justify-center gap-1 hover:bg-white w-full animate-fadeInUp"
+                    disabled={logs.length === 0}
+                  >
+                    <Sparkles size={11} className="text-[#D55D27]" />
+                    <span>Regenerate Summary</span>
+                  </button>
                 </div>
               ) : (
                 <button

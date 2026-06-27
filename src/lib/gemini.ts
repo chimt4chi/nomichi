@@ -37,7 +37,7 @@ async function callGemini(systemInstruction: string, promptText: string): Promis
         ],
         generationConfig: {
           temperature: 0.6,
-          maxOutputTokens: 300,
+          maxOutputTokens: 2048,
         }
       })
     });
