@@ -185,7 +185,7 @@ export default function PublicEnquiryPage() {
   return (
     <div className="min-h-screen bg-[#FFFBF5] text-[#1C1B1A]">
       {/* Brand Header */}
-      <header className="border-b border-[rgba(209,183,136,0.3)] py-6 bg-[#FFFBF5] sticky top-0 z-20 backdrop-blur-md bg-opacity-90 animate-fadeInUp opacity-0">
+      <header className="border-b border-[rgba(209,183,136,0.3)] py-4 md:py-6 bg-[#FFFBF5] sticky top-0 z-20 backdrop-blur-md bg-opacity-90 animate-fadeInUp opacity-0">
         <div className="container flex justify-between items-center">
           <div className="flex flex-col">
             <img 
@@ -204,7 +204,7 @@ export default function PublicEnquiryPage() {
       </header>
 
       {/* Main Hero & Description */}
-      <section className="py-36 border-b border-[rgba(209,183,136,0.2)] relative overflow-hidden flex items-center justify-center">
+      <section className="py-16 md:py-36 border-b border-[rgba(209,183,136,0.2)] relative overflow-hidden flex items-center justify-center">
         {/* Background Image with Ken Burns zoom animation */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img 
@@ -252,11 +252,11 @@ export default function PublicEnquiryPage() {
 
         {/* Translucent Frosted Glass Card Wrapper */}
         <div className="container max-w-4xl text-center relative z-10 mx-auto px-4">
-          <div className="bg-opacity-65 backdrop-blur-md rounded-2xl p-8 md:p-12 animate-fadeInUp opacity-0 delay-100">
+          <div className="backdrop-blur-md rounded-2xl p-5 md:p-12 animate-fadeInUp opacity-0 delay-100">
             <h1 className="text-4xl md:text-5xl font-display font-extrabold text-[#1C1B1A] mb-4 tracking-tight leading-tight">
               Small group journeys <br/>
               for people who want a trip to{' '}
-              <span className="text-[#D55D27] inline-flex justify-center border-b border-dashed border-[rgba(213,93,39,0.35)] px-1">
+              <span className="text-[#D55D27] inline-block tagline-border-b px-1">
                 <span className={`rotating-word ${taglineClass}`}>
                   {taglines[currentTaglineIndex]}
                 </span>

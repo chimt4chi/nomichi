@@ -334,7 +334,7 @@ a svg:not(.animate-spin),
 }
 
 .animate-ken-burns {
-  animation: kenburns 35s ease-in-out infinite;
+  animation: kenburns 5s ease-in-out infinite;
 }
 
 .opacity-0 {
@@ -351,7 +351,12 @@ a svg:not(.animate-spin),
 /* Rotating Tagline Words */
 .rotating-word {
   display: inline-block;
+  white-space: nowrap;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tagline-border-b {
+  border-bottom: 2px dashed var(--color-rust);
 }
 
 .rotating-word-active {
@@ -441,6 +446,7 @@ a svg:not(.animate-spin),
 
 /* Width & Height */
 .w-full { width: 100%; }
+.h-full { height: 100%; }
 .w-12 { width: 3rem; }
 .w-16 { width: 4rem; }
 .h-2 { height: 0.5rem; }
@@ -581,6 +587,7 @@ a svg:not(.animate-spin),
 .bg-\[rgba\(209\,183\,136\,0\.1\)\] { background-color: rgba(209, 183, 136, 0.1); }
 .bg-\[\#FFFBF5\] { background-color: var(--color-cream); }
 .bg-opacity-90 { background-color: rgba(255, 251, 245, 0.9); }
+.bg-opacity-65 { background-color: rgba(255, 251, 245, 0.65); }
 .bg-\[\#F5EFE6\] { background-color: var(--color-cream-dark); }
 .bg-gradient-to-b { background-image: linear-gradient(to bottom, var(--tw-gradient-stops)); }
 .from-\[\#FFFBF5\] { --tw-gradient-from: #FFFBF5; --tw-gradient-to: rgba(255, 251, 245, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
@@ -640,6 +647,8 @@ a svg:not(.animate-spin),
    ---------------------------------------------------- */
 @media (min-width: 640px) {
   .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sm\:flex-row { flex-direction: row; }
   .sm\:items-center { align-items: center; }
 }
 
@@ -654,6 +663,10 @@ a svg:not(.animate-spin),
   .md\:col-span-4 { grid-column: span 4 / span 4; }
   .md\:col-span-5 { grid-column: span 5 / span 5; }
   .md\:col-span-7 { grid-column: span 7 / span 7; }
+  .md\:p-12 { padding: 3rem; }
+  .md\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .md\:py-36 { padding-top: 9rem; padding-bottom: 9rem; }
+  .md\:text-5xl { font-size: 3rem; }
 }
 
 @media (min-width: 1024px) {

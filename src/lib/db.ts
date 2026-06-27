@@ -337,7 +337,7 @@ export const db = {
   // --- LEADS ---
   async getLeads(filters?: { status?: string; tripId?: string; search?: string }): Promise<Lead[]> {
     if (isSupabaseConfigured && supabase) {
-      let query = supabase.from('leads').select('*, trip:trips(*)').order('created_at', { ascending: false });
+      let query = supabase.from('leads').select('*, trip:trips(*), owner:profiles(id, full_name, email)').order('created_at', { ascending: false });
       if (filters?.status && filters.status !== 'all') {
         query = query.eq('status', filters.status);
       }
@@ -351,8 +351,11 @@ export const db = {
       const { data, error } = await query;
       if (!error && data) {
         // Resolve owner names if needed (could do another join or profile map)
-        const leads = data as (Lead & { trip: Trip })[];
-        return leads;
+        const leads = (data as any[]).map(lead => ({
+          ...lead,
+          owner_name: lead.owner?.full_name || 'Unassigned'
+        }));
+        return leads as Lead[];
       }
       logError('getLeads (falling back to LocalStorage)', error);
     }
@@ -384,8 +387,18 @@ export const db = {
 
   async getLeadById(id: string): Promise<Lead | null> {
     if (isSupabaseConfigured && supabase) {
-      const { data, error } = await supabase.from('leads').select('*, trip:trips(*)').eq('id', id).single();
-      if (!error && data) return data as Lead;
+      const { data, error } = await supabase
+        .from('leads')
+        .select('*, trip:trips(*), owner:profiles(id, full_name, email)')
+        .eq('id', id)
+        .single();
+      if (!error && data) {
+        const lead = data as any;
+        return {
+          ...lead,
+          owner_name: lead.owner?.full_name || 'Unassigned'
+        } as Lead;
+      }
       logError('getLeadById', error);
     }
 
@@ -402,11 +415,18 @@ export const db = {
 
   async createLead(leadData: Omit<Lead, 'id' | 'created_at' | 'status'>): Promise<Lead> {
     if (isSupabaseConfigured && supabase) {
-      const { data, error } = await supabase.from('leads').insert([{
+      const { error } = await supabase.from('leads').insert([{
         ...leadData,
         status: 'NEW'
-      }]).select().single();
-      if (!error && data) return data as Lead;
+      }]);
+      if (!error) {
+        return {
+          ...leadData,
+          status: 'NEW',
+          id: 'lead-' + Math.random().toString(36).substr(2, 9),
+          created_at: new Date().toISOString()
+        } as Lead;
+      }
       logError('createLead', error);
       throw error || new Error('Failed to submit enquiry');
     }
@@ -440,9 +460,21 @@ export const db = {
   },
 
   async updateLeadOwner(id: string, ownerId: string | null): Promise<Lead> {
-    const { profiles } = getLocalStorageData();
-    const ownerProfile = profiles.find(p => p.id === ownerId);
-    const ownerName = ownerProfile ? ownerProfile.full_name : 'Unassigned';
+    let ownerName = 'Unassigned';
+    if (ownerId) {
+      if (isSupabaseConfigured && supabase) {
+        const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', ownerId).single();
+        if (profileData) {
+          ownerName = profileData.full_name;
+        }
+      } else {
+        const { profiles } = getLocalStorageData();
+        const ownerProfile = profiles.find(p => p.id === ownerId);
+        if (ownerProfile) {
+          ownerName = ownerProfile.full_name;
+        }
+      }
+    }
 
     if (isSupabaseConfigured && supabase) {
       const { data, error } = await supabase.from('leads').update({ owner_id: ownerId }).eq('id', id).select().single();
